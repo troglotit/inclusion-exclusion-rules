@@ -29,6 +29,9 @@ export const rulesSlice = createSlice({
     removeRule: (state, { payload: { ruleType, index } }) => {
       state[ruleType].splice(index, 1);
     },
+    modifyRule: (state, { payload: { ruleType, index, rule } }) => {
+      state[ruleType][index] = rule;
+    },
   },
 });
 
@@ -37,7 +40,7 @@ export const actions = rulesSlice.actions;
 rulesSlice.actions.initFetch = () => (dispatch) => {
   fetch("/rules.json")
     .then((response) => response.json())
-    .then((data) => console.log(data) || dispatch(actions.initialize(data)));
+    .then((data) => dispatch(actions.initialize(data)));
 };
 
 export const selectors = {
