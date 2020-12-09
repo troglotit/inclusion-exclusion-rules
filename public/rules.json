@@ -1,0 +1,12 @@
+{
+    "inclusion": [
+        {
+            "rule": "all"
+        },
+        {
+            "rule": "custom",
+            "type": "contains",
+            "url": "testurl"
+        }
+    ]
+}
